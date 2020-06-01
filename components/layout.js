@@ -40,7 +40,7 @@ export default function Layout({ children, home }) {
               <a>
                 <img
                   src="/images/profile.jpg"
-                  className={` ${utilStyles.borderCircle}`}
+                  className={` ${styles.headerImage } ${utilStyles.borderCircle}`}
                   alt={name}
                 />
               </a>
