@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from './styles/layout.module.css'
 import utilStyles from './styles/utils.module.css'
 import Link from 'next/link'
+import Footer from './footer'
+
 const name = 'Kenny Chung'
 export const siteTitle = "Kenny's Portfolio"
 
@@ -54,6 +56,9 @@ export default function Layout({ children, home }) {
       </header>
       <main>
         {children}
+        <br />
+        <br />
+        <Footer />
       </main>
       {!home && (
         <div className={styles.backToHome}>
