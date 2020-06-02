@@ -3,12 +3,17 @@ import styles from './styles/layout.module.css'
 import utilStyles from './styles/utils.module.css'
 import Link from 'next/link'
 import Footer from './footer'
+import Sidebar from './sidebar'
 
 const name = 'Kenny Chung'
 export const siteTitle = "Kenny's Portfolio"
 
 export default function Layout({ children, home }) {
   return (
+    <div className={styles.fullContainer}>
+    <div>
+    <Sidebar />
+    </div>
     <div className={`${styles.container}`}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -56,10 +61,10 @@ export default function Layout({ children, home }) {
       </header>
       <main>
         {children}
-        <br />
-        <br />
-        <Footer />
       </main>
+      <footer>
+      <Footer />
+      </footer>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
@@ -68,5 +73,5 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  </div>)
 }
