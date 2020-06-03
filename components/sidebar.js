@@ -1,14 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home'
+import ListItems from './listitems'
 
-const drawerWidth = '20vw';
+const drawerWidth = '18vw';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: 'white', 
+    backgroundColor: '#b33939', 
+    marginLeft: theme.spacing(5)
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -29,9 +26,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function SideBar() {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <Drawer
@@ -43,15 +41,9 @@ export default function SideBar() {
         anchor="left"
       >
         <div className={classes.toolbar} />
-        <Divider />
-        <List>
-          {['Home', 'About me', 'Projects', 'Blog'].map((text, index) => (
-            <ListItem button divider key={text}>
-              <ListItemText primary={text} />
-            </ListItem>                    
-          ))}
-        </List>
+        <ListItems />
       </Drawer>
+
     </div>
   );
 }
