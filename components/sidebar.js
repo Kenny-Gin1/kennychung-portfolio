@@ -3,9 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import ListItems from './listitems';
 import SocialMedia from './socialmediaicons';
+import HeaderImage from './headerimage';
+
 
 const drawerWidth = '18vw';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ export default function SideBar() {
         }}
         anchor="left"
       >
-
+        <HeaderImage />
         <ListItems />
         <SocialMedia />
       </Drawer>

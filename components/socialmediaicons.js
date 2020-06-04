@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-around",
-    marginTop: '6rem'
+    marginTop: '3rem'
   },
   icons: {
     textAlign: "center",
@@ -19,8 +19,8 @@ export default function SocialMedia() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Link href="/">
-        <a>
+      <Link href="//github.com/Kenny-Gin1" prefetch={false}>
+        <a target={"_blank"}>
           <img
             src="/images/github-logo.png"
             className={styles.socialMediaIcons}
@@ -28,8 +28,8 @@ export default function SocialMedia() {
           />
         </a>
       </Link>
-      <Link href="/">
-        <a>
+      <Link href="//linkedin.com/in/kenny-chung-02315b131/" prefetch={false}>
+        <a target={"_blank"}>
           <img
             src="/images/linkedin-logo.png"
             className={styles.socialMediaIcons}
@@ -37,8 +37,8 @@ export default function SocialMedia() {
           />
         </a>
       </Link>
-      <Link href="/">
-        <a>
+      <Link href="//medium.com/@kennychung_96278" prefetch={false}>
+        <a target={"_blank"}>
           <img
             src="/images/medium-logo.png"
             className={styles.socialMediaIcons}

@@ -9,12 +9,23 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
+    listItemHover: {
+      display: 'flex',
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+      '&:hover': {
+        backgroundColor: 'white',
+      }
+    },
     dividerLine: {
         backgroundColor: 'white'
     },
     textLink: {
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        '&:hover': {
+          color: '#b33939',
+        }
     }
 
 }));
@@ -29,7 +40,7 @@ return (
           {[['Home', '/'], ['About me', '/about'], ['Projects','/projects'], ['Blog', '/blog']].map((text) => (
             <React.Fragment key={text}>  
             <Link href={text[1]} >
-            <ListItem button>
+            <ListItem button classes={{root: classes.listItemHover}}>
               <ListItemText primary={text[0]} classes={{root: classes.textLink}} />
             </ListItem>
             </Link>                  
