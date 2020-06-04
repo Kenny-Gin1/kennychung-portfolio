@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "./styles/layout.module.css";
-import utilStyles from "./styles/utils.module.css";
 import Link from "next/link";
 import Footer from "./footer";
 import Sidebar from "./sidebar";
@@ -25,10 +24,8 @@ export default function Layout({ children, home }) {
       </Head>
       <Sidebar />
       <div className={`${styles.container}`}>
-        <main>{children}</main>
-        <footer>
-          <Footer />
-        </footer>
+        <main>{children} </main>
+
         {!home && (
           <div className={styles.backToHome}>
             <Link href="/">
@@ -37,6 +34,9 @@ export default function Layout({ children, home }) {
           </div>
         )}
       </div>
+      <footer>
+          <Footer />
+        </footer>
     </div>
   );
 }

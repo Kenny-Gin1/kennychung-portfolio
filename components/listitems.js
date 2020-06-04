@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     listItemHover: {
       display: 'flex',
-      marginTop: theme.spacing(1),
-      marginBottom: theme.spacing(1),
+      padding: 0,
       '&:hover': {
         backgroundColor: 'white',
       }
@@ -27,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
     textLink: {
         textAlign: 'center',
         color: 'white',
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
         '&:hover': {
           color: '#b33939',
         }
@@ -36,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ListItems () {
 const classes = useStyles()
-
-const [colorButton, setColorButton] = useState([''])
-
 
 return (
 <>
