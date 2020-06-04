@@ -4,6 +4,8 @@ import Drawer from '@material-ui/core/Drawer';
 import ListItems from './listitems';
 import SocialMedia from './socialmediaicons';
 import HeaderImage from './headerimage';
+import Slide from '@material-ui/core/Slide';
+
 
 
 const drawerWidth = '18vw';
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function SideBar() {
+export default function SideBar(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -41,12 +43,12 @@ export default function SideBar() {
           paper: classes.drawerPaper,
         }}
         anchor="left"
+        {...props}
       >
         <HeaderImage />
         <ListItems />
         <SocialMedia />
       </Drawer>
-
     </div>
   );
 }
