@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import ListItems from './listitems'
+import ListItems from './listitems';
+import SocialMedia from './socialmediaicons';
 
 const drawerWidth = '18vw';
 
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(5)
   },
   // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
+  //toolbar: theme.mixins.toolbar,
   content: {
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
@@ -40,8 +41,9 @@ export default function SideBar() {
         }}
         anchor="left"
       >
-        <div className={classes.toolbar} />
+
         <ListItems />
+        <SocialMedia />
       </Drawer>
 
     </div>

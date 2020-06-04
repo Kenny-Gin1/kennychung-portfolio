@@ -9,10 +9,10 @@ const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
     },
-    divider: {
+    dividerLine: {
         backgroundColor: 'white'
     },
-    text: {
+    textLink: {
         textAlign: 'center',
         color: 'white'
     }
@@ -27,14 +27,14 @@ return (
 <>
 <List component="nav">
           {[['Home', '/'], ['About me', '/about'], ['Projects','/projects'], ['Blog', '/blog']].map((text) => (
-            <>  
-            <Link href={text[1]} key={text}>
-            <ListItem button divider key={text}>
-              <ListItemText primary={text[0]} className={classes.text} />
+            <React.Fragment key={text}>  
+            <Link href={text[1]} >
+            <ListItem button>
+              <ListItemText primary={text[0]} classes={{root: classes.textLink}} />
             </ListItem>
             </Link>                  
-            <Divider classes={{root: classes.divider}}/>
-            </>
+            <Divider classes={{root: classes.dividerLine}} />
+            </React.Fragment>
           ))}
         </List>
         </>
