@@ -1,16 +1,17 @@
-import Link from 'next/link';
-import Date from "../../components/date";
-import utilStyles from "../../components/styles/utils.module.css"
-import Layout from "../../components/layout"
-import Head from "next/head"
-import { getSortedPostsData } from "../../lib/posts"
+import Link from 'next/link'
+import Date from '../../components/Date'
+import utilStyles from '../../components/styles/utils.module.css'
+import Layout from '../../components/Layout'
+import Head from 'next/head'
+import { getSortedPostsData } from '../../lib/posts'
 
 export default function Blog({ allPostsData }) {
-    return (
-<Layout>
+  return (
+    <Layout>
       <Head>
         <title>Blog</title>
-      </Head>      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      </Head>{' '}
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
@@ -26,15 +27,15 @@ export default function Blog({ allPostsData }) {
           ))}
         </ul>
       </section>
-      </Layout>
-        )
+    </Layout>
+  )
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()
   return {
     props: {
       allPostsData,
     },
-  };
+  }
 }

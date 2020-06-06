@@ -11,6 +11,7 @@
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
+    "@mui-treasury/components": "^1.4.0",
     "date-fns": "^2.14.0",
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.2",
@@ -19,5 +20,8 @@
     "react-dom": "16.13.1",
     "remark": "^12.0.0",
     "remark-html": "^11.0.2"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }

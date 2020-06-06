@@ -24,6 +24,7 @@ export default function SocialMedia() {
           <img
             src="/images/github-logo.png"
             className={styles.socialMediaIcons}
+            rel="noopener noreferrer"
             alt='Github-logo'
           />
         </a>
@@ -33,6 +34,7 @@ export default function SocialMedia() {
           <img
             src="/images/linkedin-logo.png"
             className={styles.socialMediaIcons}
+            rel="noopener noreferrer"
             alt='LinkedIn-logo'
           />
         </a>
@@ -42,6 +44,7 @@ export default function SocialMedia() {
           <img
             src="/images/medium-logo.png"
             className={styles.socialMediaIcons}
+            rel="noopener noreferrer"
             alt='Medium-logo'
           />
         </a>

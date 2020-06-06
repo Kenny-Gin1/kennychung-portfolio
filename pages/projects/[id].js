@@ -1,30 +1,30 @@
 import Layout from '../../components/Layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import { getAllProjectIds, getProjectData } from '../../lib/projects'
 import Head from 'next/head'
 import Date from '../../components/Date'
 import utilStyles from '../../components/styles/utils.module.css'
 
-export default function Post({ postData }) {
+export default function Project({ projectData }) {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{projectData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <h1 className={utilStyles.headingXl}>{projectData.title}</h1>
         <div className={utilStyles.lightText}>
           <b>
-            <Date dateString={postData.date} />
+            <Date dateString={projectData.date} />
           </b>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: projectData.contentHtml }} />
       </article>
     </Layout>
   )
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds()
+  const paths = getAllProjectIds()
   return {
     paths,
     fallback: false,
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id)
+  const projectData = await getProjectData(params.id)
   return {
     props: {
       postData,

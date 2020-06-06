@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../components/styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
+import Head from 'next/head'
+import Layout, { siteTitle } from '../components/Layout'
+import utilStyles from '../components/styles/utils.module.css'
+import { getSortedPostsData } from '../lib/posts'
 
 export default function Home() {
   return (
@@ -15,16 +15,15 @@ export default function Home() {
           lawyer. Welcome to my site!
         </p>
       </section>
-    
     </Layout>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()
   return {
     props: {
       allPostsData,
     },
-  };
+  }
 }

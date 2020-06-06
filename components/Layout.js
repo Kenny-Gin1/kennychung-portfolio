@@ -1,11 +1,11 @@
-import Head from "next/head";
-import styles from "./styles/layout.module.css";
-import Link from "next/link";
-import Footer from "./footer";
-import Sidebar from "./sidebar";
+import Head from 'next/head'
+import styles from './styles/layout.module.css'
+import Link from 'next/link'
+import Footer from './Footer'
+import Sidebar from './SideBar'
 
-const name = "Kenny Chung";
-export const siteTitle = "Kenny's Portfolio";
+const name = 'Kenny Chung'
+export const siteTitle = "Kenny's Portfolio"
 
 export default function Layout({ children, home }) {
   return (
@@ -16,7 +16,7 @@ export default function Layout({ children, home }) {
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
+            siteTitle,
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
       </Head>
       <Sidebar />
       <div className={`${styles.container}`}>
-        <main>{children} </main>
+        <main className={`${styles.main}`}>{children} </main>
 
         {!home && (
           <div className={styles.backToHome}>
@@ -35,8 +35,8 @@ export default function Layout({ children, home }) {
         )}
       </div>
       <footer>
-          <Footer />
-        </footer>
+        <Footer />
+      </footer>
     </div>
-  );
+  )
 }
