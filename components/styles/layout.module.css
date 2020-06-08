@@ -43,3 +43,8 @@
   width: 3rem;
   height: 3rem;
 }
+
+.descriptionBox {
+  width: 30rem;
+  padding-bottom: 5rem;
+}
