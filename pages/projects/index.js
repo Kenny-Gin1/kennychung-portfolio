@@ -36,8 +36,14 @@ export default function Projects({ data }) {
           These are the projects I have been working on.
         </p>
         <div className={classes.root}>
-          {data.map(({ description, name }) => (
-            <ProjectCard body={description} heading={name} />
+          {data.map(({ description, name, created_at, id, url }) => (
+            <ProjectCard
+              body={description}
+              heading={name}
+              subheader={created_at}
+              id={id}
+              url={url}
+            />
           ))}
         </div>
       </section>

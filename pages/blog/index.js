@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Date from '../../components/Date'
+import { DateDay } from '../../components/Date'
 import utilStyles from '../../components/styles/utils.module.css'
 import styles from '../../components/styles/layout.module.css'
 import Layout from '../../components/Layout'
@@ -29,7 +29,7 @@ export default function Blog({ allPostsData }) {
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <DateDay dateString={date} />
               </small>
             </li>
           ))}
