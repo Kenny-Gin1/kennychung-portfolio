@@ -1,7 +1,7 @@
 import Layout from '../../components/Layout'
 import { getAllProjectIds, getProjectData } from '../../lib/projects'
 import Head from 'next/head'
-import Date from '../../components/Date'
+import { DateMonth } from '../../components/Date'
 import utilStyles from '../../components/styles/utils.module.css'
 
 export default function Project({ projectData }) {
@@ -14,7 +14,7 @@ export default function Project({ projectData }) {
         <h1 className={utilStyles.headingXl}>{projectData.title}</h1>
         <div className={utilStyles.lightText}>
           <b>
-            <Date dateString={projectData.date} />
+            <DateMonth dateString={projectData.date} />
           </b>
         </div>
         <div dangerouslySetInnerHTML={{ __html: projectData.contentHtml }} />

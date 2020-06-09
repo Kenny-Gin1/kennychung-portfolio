@@ -41,7 +41,6 @@ export default function Blog({ allPostsData }) {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
-  console.log(allPostsData)
   return {
     props: {
       allPostsData,

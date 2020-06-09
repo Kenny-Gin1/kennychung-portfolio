@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Projects({ data }) {
-  console.log(data)
   const classes = useStyles()
   return (
     <Layout>
@@ -56,8 +55,6 @@ export async function getStaticProps() {
     headers: { Accept: 'application/vnd.github.mercy-preview+jso' },
   })
   const data = await res.json()
-  console.log(data)
-
   return {
     props: {
       data,
