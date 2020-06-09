@@ -1,25 +1,50 @@
+.fullContainer {
+  display: flex;
+}
+
 .container {
-    max-width: 36rem;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
-  }
-  
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .headerImage {
-    width: 6rem;
-    height: 6rem;
-  }
-  
-  .headerHomeImage {
-    width: 8rem;
-    height: 8rem;
-  }
-  
-  .backToHome {
-    margin: 3rem 0 0;
-  }
+  display: flex;
+  flex-direction: column;
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  right: 15px;
+}
+
+.headerImage {
+  width: 6rem;
+  height: 6rem;
+  margin-top: 3rem;
+}
+
+.headerHomeImage {
+  width: 8rem;
+  height: 8rem;
+  margin-top: 2rem;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
+
+.socialMediaIcons {
+  width: 3rem;
+  height: 3rem;
+}
+
+.descriptionBox {
+  width: 30rem;
+  padding-bottom: 5rem;
+}
