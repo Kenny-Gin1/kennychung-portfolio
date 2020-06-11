@@ -6,10 +6,11 @@ import Head from 'next/head'
 import ProjectCard from './projectCard'
 import { makeStyles } from '@material-ui/core/styles'
 import fetch from 'node-fetch'
+import Grow from '@material-ui/core/Grow'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: '800px',
+    maxWidth: '55vw',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -35,13 +36,13 @@ export default function Projects({ data }) {
           These are the projects I have been working on.
         </p>
         <div className={classes.root}>
-          {data.map(({ description, name, created_at, id, url }) => (
+          {data.map(({ description, name, created_at, id, html_url }) => (
             <ProjectCard
               body={description}
               heading={name}
               subheader={created_at}
-              id={id}
-              url={url}
+              key={id}
+              url={html_url}
             />
           ))}
         </div>
@@ -55,6 +56,7 @@ export async function getStaticProps() {
     headers: { Accept: 'application/vnd.github.mercy-preview+jso' },
   })
   const data = await res.json()
+  console.log(data)
   return {
     props: {
       data,
