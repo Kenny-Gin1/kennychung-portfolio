@@ -21,9 +21,9 @@ export default function Blog({ allPostsData }) {
           Here are articles written by me.
         </p>
         <ul className={`${utilStyles.list} ${styles.blogContainer}`}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, body }) => (
             <li className={`${utilStyles.listItem} `} key={id}>
-              <BlogCard id={id} date={date} title={title} />
+              <BlogCard id={id} date={date} title={title} body={body} />
               {/*<small className={utilStyles.lightText}>
                     <DateDay dateString={date} />
           </small>*/}

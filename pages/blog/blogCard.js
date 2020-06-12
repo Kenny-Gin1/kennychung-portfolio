@@ -59,14 +59,13 @@ const BlogButton = React.forwardRef(({ onClick, href }, ref) => {
   )
 })
 
-export const BlogCard = React.memo(function BlogCard({ date, title, id }) {
+const BlogCard = React.memo(function BlogCard({ date, title, id, body }) {
   const styles = useStyles()
   const {
     button: buttonStyles,
     ...contentStyles
   } = useBlogTextInfoContentStyles()
   const shadowStyles = useOverShadowStyles()
-
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia
@@ -80,9 +79,7 @@ export const BlogCard = React.memo(function BlogCard({ date, title, id }) {
           classes={contentStyles}
           overline={date}
           heading={title}
-          body={
-            'Git is a distributed version control system. Every dev has a working copy of the code and...'
-          }
+          body={body}
         />
         <Link href={`/blog/${id}`} as={`/blog/${id}`} passHref>
           <BlogButton />
