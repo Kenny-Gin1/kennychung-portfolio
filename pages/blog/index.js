@@ -5,6 +5,7 @@ import styles from '../../components/styles/layout.module.css'
 import Layout from '../../components/Layout'
 import Head from 'next/head'
 import { getSortedPostsData } from '../../lib/posts'
+import BlogCard from '../blog/blogCard'
 
 export default function Blog({ allPostsData }) {
   return (
@@ -16,21 +17,16 @@ export default function Blog({ allPostsData }) {
         <h2 className={`${utilStyles.headingLg} ${utilStyles.textCenter}`}>
           Blog
         </h2>
-        <div className={styles.descriptionBox}>
-          <p className={utilStyles.textCenter}>
-            Here are articles written by me.
-          </p>
-        </div>
-        <ul className={utilStyles.list}>
+        <p className={utilStyles.textCenter}>
+          Here are articles written by me.
+        </p>
+        <ul className={`${utilStyles.list} ${styles.blogContainer}`}>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/blog/[id]" as={`/blog/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <DateDay dateString={date} />
-              </small>
+            <li className={`${utilStyles.listItem} `} key={id}>
+              <BlogCard id={id} date={date} title={title} />
+              {/*<small className={utilStyles.lightText}>
+                    <DateDay dateString={date} />
+          </small>*/}
             </li>
           ))}
         </ul>

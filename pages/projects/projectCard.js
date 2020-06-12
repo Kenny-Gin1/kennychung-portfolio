@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius: 20,
     maxWidth: 240,
+    height: 300,
     marginBottom: '2rem',
     marginRight: '1rem',
   },
