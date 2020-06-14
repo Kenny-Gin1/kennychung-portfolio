@@ -9,9 +9,8 @@ import { useLightTopShadowStyles } from '@mui-treasury/styles/shadow/lightTop'
 import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 import Divider from '@material-ui/core/Divider'
-import { DateMonth } from '../../components/Date'
+import { DateMonth } from './Date'
 import { CardActionArea } from '@material-ui/core'
-import Grow from '@material-ui/core/Grow'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +50,7 @@ export default function ProjectCard({ body, heading, subheader, url }) {
     <div>
       <Card className={cx(shadowStyles.root, classes.root)}>
         <CardActionArea component="div">
-          <a href={url} target={'_blank'} disable className={classes.links}>
+          <a href={url} target={'_blank'} className={classes.links}>
             <CardHeader
               avatar={
                 <Avatar

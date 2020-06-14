@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Layout from '../../components/Layout'
 import utilStyles from '../../components/styles/utils.module.css'
 import Head from 'next/head'
-import ProjectCard from './projectCard'
+import ProjectCard from '../../components/ProjectCard'
 import { makeStyles } from '@material-ui/core/styles'
 import fetch from 'node-fetch'
 import Grow from '@material-ui/core/Grow'
@@ -55,7 +55,6 @@ export async function getStaticProps() {
     headers: { Accept: 'application/vnd.github.mercy-preview+jso' },
   })
   const data = await res.json()
-  console.log(data)
   return {
     props: {
       data,

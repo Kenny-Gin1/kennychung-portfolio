@@ -1,11 +1,9 @@
-import Link from 'next/link'
-import { DateDay } from '../../components/Date'
 import utilStyles from '../../components/styles/utils.module.css'
 import styles from '../../components/styles/layout.module.css'
 import Layout from '../../components/Layout'
 import Head from 'next/head'
 import { getSortedPostsData } from '../../lib/posts'
-import BlogCard from '../blog/blogCard'
+import BlogCard from '../../components/BlogCard'
 
 export default function Blog({ allPostsData }) {
   return (

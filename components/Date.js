@@ -6,6 +6,8 @@ export function DateDay({ dateString }) {
 }
 
 export function DateMonth({ dateString }) {
+  console.log(dateString)
   const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL, yyyy')}</time>
+  console.log(date)
+  return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
 }
