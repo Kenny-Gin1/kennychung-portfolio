@@ -4,7 +4,6 @@ import Drawer from '@material-ui/core/Drawer'
 import ListItems from './ListItems'
 import SocialMedia from './SocialMediaIcons'
 import HeaderImage from './HeaderImage'
-import Slide from '@material-ui/core/Slide'
 
 const drawerWidth = '18vw'
 

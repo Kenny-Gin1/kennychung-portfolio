@@ -48,3 +48,9 @@
   width: 30rem;
   padding-bottom: 5rem;
 }
+
+.blogContainer {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+}

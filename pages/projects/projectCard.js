@@ -10,13 +10,17 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 import Divider from '@material-ui/core/Divider'
 import { DateMonth } from '../../components/Date'
+import { CardActionArea } from '@material-ui/core'
+import Grow from '@material-ui/core/Grow'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'white',
     borderRadius: 20,
-    maxWidth: 343,
+    maxWidth: 240,
+    height: 300,
     marginBottom: '2rem',
+    marginRight: '1rem',
   },
   header: {
     height: '12px',
@@ -27,10 +31,16 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     padding: 24,
+    color: 'black',
   },
   subheader: {
     display: 'flex',
     justifyContent: 'flex-end',
+  },
+  links: {
+    '&:hover': {
+      color: '#FFF',
+    },
   },
 }))
 
@@ -38,29 +48,43 @@ export default function ProjectCard({ body, heading, subheader, url }) {
   const classes = useStyles()
   const shadowStyles = useLightTopShadowStyles()
   return (
-    <Card className={cx(shadowStyles.root, classes.root)}>
-      <CardHeader
-        avatar={
-          <Avatar
-            alt="React"
-            src="/images/react-icon-png-7.png"
-            className={`${classes.header} ${classes.icons}`}
-          />
-        }
-        subheader={<DateMonth dateString={subheader} />}
-        classes={{
-          subheader: classes.subheader,
-        }}
-      />
-      <Divider variant="middle" />
-      <CardContent className={classes.content}>
-        <TextInfoContent
-          useStyles={useN02TextInfoContentStyles}
-          overline={''}
-          heading={heading}
-          body={body}
-        />
-      </CardContent>
-    </Card>
+    <div>
+      <Card className={cx(shadowStyles.root, classes.root)}>
+        <CardActionArea component="div">
+          <a href={url} target={'_blank'} disable className={classes.links}>
+            <CardHeader
+              avatar={
+                <Avatar
+                  alt="React"
+                  src="/images/react-icon-png-7.png"
+                  className={`${classes.header} ${classes.icons}`}
+                />
+              }
+              subheader={<DateMonth dateString={subheader} />}
+              classes={{
+                subheader: classes.subheader,
+              }}
+            />
+            <Divider variant="middle" />
+            <CardContent className={classes.content}>
+              <TextInfoContent
+                useStyles={useN02TextInfoContentStyles}
+                overline={''}
+                heading={heading}
+                body={body}
+              />
+            </CardContent>
+          </a>
+        </CardActionArea>
+      </Card>
+    </div>
   )
 }
+
+/*export default function ProjectCard() {
+  return (
+    <Grow>
+      <MyComponent />
+    </Grow>
+  )
+}*/
