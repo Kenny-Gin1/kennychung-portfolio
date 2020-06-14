@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import utilStyles from '../../components/styles/utils.module.css'
-import styles from '../../components/styles/layout.module.css'
 import Head from 'next/head'
 import ProjectCard from './projectCard'
 import { makeStyles } from '@material-ui/core/styles'
