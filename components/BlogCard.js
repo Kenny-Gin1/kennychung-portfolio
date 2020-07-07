@@ -9,6 +9,7 @@ import TextInfoContent from '@mui-treasury/components/content/textInfo'
 import { useBlogTextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/blog'
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over'
 import Link from 'next/link'
+import Grow from '@material-ui/core/Grow'
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -67,25 +68,27 @@ const BlogCard = React.memo(function BlogCard({ date, title, id, body }) {
   } = useBlogTextInfoContentStyles()
   const shadowStyles = useOverShadowStyles()
   return (
-    <Card className={cx(styles.root, shadowStyles.root)}>
-      <CardMedia
-        className={styles.media}
-        image={
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2000px-Git_icon.svg.png'
-        }
-      />
-      <CardContent>
-        <TextInfoContent
-          classes={contentStyles}
-          overline={date}
-          heading={title}
-          body={body}
+    <Grow in={true} timeout="auto">
+      <Card className={cx(styles.root, shadowStyles.root)}>
+        <CardMedia
+          className={styles.media}
+          image={
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2000px-Git_icon.svg.png'
+          }
         />
-        <Link href={`/blog/${id}`} as={`/blog/${id}`} passHref>
-          <BlogButton />
-        </Link>
-      </CardContent>
-    </Card>
+        <CardContent>
+          <TextInfoContent
+            classes={contentStyles}
+            overline={date}
+            heading={title}
+            body={body}
+          />
+          <Link href={`/blog/${id}`} as={`/blog/${id}`} passHref>
+            <BlogButton />
+          </Link>
+        </CardContent>
+      </Card>
+    </Grow>
   )
 })
 

@@ -3,7 +3,7 @@ import Layout from '../../components/Layout'
 import utilStyles from '../../components/styles/utils.module.css'
 import styles from '../../components/styles/layout.module.css'
 import Head from 'next/head'
-import ProjectCard from './projectCard'
+import ProjectCard from '../../components/ProjectCard'
 import { makeStyles } from '@material-ui/core/styles'
 import fetch from 'node-fetch'
 import Grow from '@material-ui/core/Grow'
@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
   },
   description: {
     marginBottom: '5rem',

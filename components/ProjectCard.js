@@ -9,7 +9,7 @@ import { useLightTopShadowStyles } from '@mui-treasury/styles/shadow/lightTop'
 import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 import Divider from '@material-ui/core/Divider'
-import { DateMonth } from '../../components/Date'
+import { DateMonth } from './Date'
 import { CardActionArea } from '@material-ui/core'
 import Grow from '@material-ui/core/Grow'
 
@@ -49,34 +49,36 @@ export default function ProjectCard({ body, heading, subheader, url }) {
   const shadowStyles = useLightTopShadowStyles()
   return (
     <div>
-      <Card className={cx(shadowStyles.root, classes.root)}>
-        <CardActionArea component="div">
-          <a href={url} target={'_blank'} disable className={classes.links}>
-            <CardHeader
-              avatar={
-                <Avatar
-                  alt="React"
-                  src="/images/react-icon-png-7.png"
-                  className={`${classes.header} ${classes.icons}`}
-                />
-              }
-              subheader={<DateMonth dateString={subheader} />}
-              classes={{
-                subheader: classes.subheader,
-              }}
-            />
-            <Divider variant="middle" />
-            <CardContent className={classes.content}>
-              <TextInfoContent
-                useStyles={useN02TextInfoContentStyles}
-                overline={''}
-                heading={heading}
-                body={body}
+      <Grow in={true} timeout="auto">
+        <Card className={cx(shadowStyles.root, classes.root)}>
+          <CardActionArea component="div">
+            <a href={url} target={'_blank'} disable className={classes.links}>
+              <CardHeader
+                avatar={
+                  <Avatar
+                    alt="React"
+                    src="/images/react-icon-png-7.png"
+                    className={`${classes.header} ${classes.icons}`}
+                  />
+                }
+                subheader={<DateMonth dateString={subheader} />}
+                classes={{
+                  subheader: classes.subheader,
+                }}
               />
-            </CardContent>
-          </a>
-        </CardActionArea>
-      </Card>
+              <Divider variant="middle" />
+              <CardContent className={classes.content}>
+                <TextInfoContent
+                  useStyles={useN02TextInfoContentStyles}
+                  overline={''}
+                  heading={heading}
+                  body={body}
+                />
+              </CardContent>
+            </a>
+          </CardActionArea>
+        </Card>
+      </Grow>
     </div>
   )
 }
