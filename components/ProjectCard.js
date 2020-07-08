@@ -48,45 +48,35 @@ export default function ProjectCard({ body, heading, subheader, url }) {
   const classes = useStyles()
   const shadowStyles = useLightTopShadowStyles()
   return (
-    <div>
-      <Grow in={true} timeout="auto">
-        <Card className={cx(shadowStyles.root, classes.root)}>
-          <CardActionArea component="div">
-            <a href={url} target={'_blank'} disable className={classes.links}>
-              <CardHeader
-                avatar={
-                  <Avatar
-                    alt="React"
-                    src="/images/react-icon-png-7.png"
-                    className={`${classes.header} ${classes.icons}`}
-                  />
-                }
-                subheader={<DateMonth dateString={subheader} />}
-                classes={{
-                  subheader: classes.subheader,
-                }}
-              />
-              <Divider variant="middle" />
-              <CardContent className={classes.content}>
-                <TextInfoContent
-                  useStyles={useN02TextInfoContentStyles}
-                  overline={''}
-                  heading={heading}
-                  body={body}
+    <Grow in={true} timeout={1000}>
+      <Card className={cx(shadowStyles.root, classes.root)}>
+        <CardActionArea component="div">
+          <a href={url} target={'_blank'} disable className={classes.links}>
+            <CardHeader
+              avatar={
+                <Avatar
+                  alt="React"
+                  src="/images/react-icon-png-7.png"
+                  className={`${classes.header} ${classes.icons}`}
                 />
-              </CardContent>
-            </a>
-          </CardActionArea>
-        </Card>
-      </Grow>
-    </div>
-  )
-}
-
-/*export default function ProjectCard() {
-  return (
-    <Grow>
-      <MyComponent />
+              }
+              subheader={<DateMonth dateString={subheader} />}
+              classes={{
+                subheader: classes.subheader,
+              }}
+            />
+            <Divider variant="middle" />
+            <CardContent className={classes.content}>
+              <TextInfoContent
+                useStyles={useN02TextInfoContentStyles}
+                overline={''}
+                heading={heading}
+                body={body}
+              />
+            </CardContent>
+          </a>
+        </CardActionArea>
+      </Card>
     </Grow>
   )
-}*/
+}
