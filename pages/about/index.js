@@ -13,12 +13,6 @@ export default function About() {
         <h2 className={`${utilStyles.headingLg} ${utilStyles.textCenter}`}>
           About Me
         </h2>
-        <div>
-          <p className={utilStyles.textCenter}>
-            I entered law school in 2011 thinking that I was going to pursue
-            law. Fate could not have been stranger...
-          </p>
-        </div>
       </section>
       <section>
         <AboutCard />
