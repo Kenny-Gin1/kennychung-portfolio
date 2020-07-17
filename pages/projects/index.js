@@ -55,7 +55,6 @@ export async function getStaticProps() {
     headers: { Accept: 'application/vnd.github.mercy-preview+jso' },
   })
   const data = await res.json()
-  console.log(data)
   return {
     props: {
       data,

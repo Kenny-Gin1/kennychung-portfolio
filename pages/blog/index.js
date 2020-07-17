@@ -4,8 +4,9 @@ import utilStyles from '../../components/styles/utils.module.css'
 import styles from '../../components/styles/layout.module.css'
 import Layout from '../../components/Layout'
 import Head from 'next/head'
-import { getSortedPostsData } from '../../lib/posts'
+//import { getSortedPostsData } from '../../lib/posts'
 import BlogCard from '../../components/BlogCard'
+import fetch from 'node-fetch'
 
 export default function Blog({ allPostsData }) {
   return (
@@ -21,25 +22,41 @@ export default function Blog({ allPostsData }) {
           Here are articles written by me.
         </p>
         <ul className={`${utilStyles.list} ${styles.blogContainer}`}>
-          {allPostsData.map(({ id, date, title, body }) => (
+          {/* {allPostsData.map(({ id, date, title, body }) => (
             <li className={`${utilStyles.listItem} `} key={id}>
               <BlogCard id={id} date={date} title={title} body={body} />
-              {/*<small className={utilStyles.lightText}>
-                    <DateDay dateString={date} />
-          </small>*/}
-            </li>
-          ))}
+         </li>
+         ))} */}
         </ul>
       </section>
     </Layout>
   )
 }
 
+/*
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
     props: {
       allPostsData,
+    },
+  }
+}
+*/
+
+export async function getStaticProps() {
+  const res = await fetch(
+    'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@kenny.chung',
+    {
+      headers: { Accept: 'application/json' },
+    },
+  )
+  const data = await res.json()
+  const posts = data.items.filter((item) => item.categories.length > 0)
+  console.log(posts)
+  return {
+    props: {
+      posts,
     },
   }
 }
