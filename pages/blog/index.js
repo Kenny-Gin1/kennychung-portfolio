@@ -8,7 +8,8 @@ import Head from 'next/head'
 import BlogCard from '../../components/BlogCard'
 import fetch from 'node-fetch'
 
-export default function Blog({ allPostsData }) {
+export default function Blog({ posts }) {
+  console.log(posts)
   return (
     <Layout>
       <Head>
@@ -22,11 +23,16 @@ export default function Blog({ allPostsData }) {
           Here are articles written by me.
         </p>
         <ul className={`${utilStyles.list} ${styles.blogContainer}`}>
-          {/* {allPostsData.map(({ id, date, title, body }) => (
+          {posts.map(({ id, pubDate, title, link, description }) => (
             <li className={`${utilStyles.listItem} `} key={id}>
-              <BlogCard id={id} date={date} title={title} body={body} />
-         </li>
-         ))} */}
+              <BlogCard
+                id={id}
+                date={pubDate}
+                title={title}
+                body={description}
+              />
+            </li>
+          ))}
         </ul>
       </section>
     </Layout>
@@ -53,7 +59,6 @@ export async function getStaticProps() {
   )
   const data = await res.json()
   const posts = data.items.filter((item) => item.categories.length > 0)
-  console.log(posts)
   return {
     props: {
       posts,
