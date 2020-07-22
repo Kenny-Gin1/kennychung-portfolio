@@ -8,8 +8,8 @@ import Button from '@material-ui/core/Button'
 import TextInfoContent from '@mui-treasury/components/content/textInfo'
 import { useBlogTextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/blog'
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over'
-import Link from 'next/link'
 import Grow from '@material-ui/core/Grow'
+import dynamic from 'next/dynamic'
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -18,8 +18,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     transition: '0.3s',
     boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
     position: 'relative',
-    maxWidth: 1200,
-    maxHeight: 300,
+    maxWidth: 800,
     marginLeft: 'auto',
     overflow: 'initial',
     background: '#ffffff',
@@ -32,7 +31,33 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       paddingTop: spacing(2),
     },
   },
-
+  media: {
+    maxWidth: '88%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: spacing(-3),
+    height: 0,
+    paddingBottom: '48%',
+    borderRadius: spacing(2),
+    backgroundColor: '#fff',
+    position: 'relative',
+    [breakpoints.up('md')]: {
+      width: '100%',
+      marginLeft: spacing(-3),
+      marginTop: 0,
+      transform: 'translateX(-8px)',
+    },
+    '&:after': {
+      content: '" "',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      borderRadius: spacing(2), // 16
+      opacity: 0.5,
+    },
+  },
   content: {
     padding: 24,
   },
@@ -48,6 +73,64 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
 }))
 
+const BlogButton = React.forwardRef(({ onClick, href }, ref) => {
+  const styles = useStyles()
+  const { button: buttonStyles } = useBlogTextInfoContentStyles()
+  return (
+    <Button className={`${buttonStyles}`}>
+      <a href={href} onClick={onClick} ref={ref} className={styles.links}>
+        Read More
+      </a>
+    </Button>
+  )
+})
+
+const fixDescription = (content) => {
+  const newContent = content
+    .replace(/<style[^>]*>.*<\/style>/gm, '')
+    // Remove script tags and content
+    .replace(/<script[^>]*>.*<\/script>/gm, '')
+    // Remove all opening, closing and orphan HTML tags
+    .replace(/<[^>]+>/gm, '')
+    // Remove leading spaces and repeated CR/LF
+    .replace(/([\r\n]+ +)+/gm, '')
+    .replace(/Continue[^]*/gm, '')
+  return newContent
+}
+
+export const BlogCard = React.memo(function BlogCard({
+  date,
+  title,
+  content,
+  link,
+  image,
+}) {
+  const styles = useStyles()
+  const {
+    button: buttonStyles,
+    ...contentStyles
+  } = useBlogTextInfoContentStyles()
+  const shadowStyles = useOverShadowStyles()
+
+  return (
+    <Grow in={true} timeout="auto">
+      <Card className={cx(styles.root, shadowStyles.root)}>
+        <CardMedia className={styles.media} image={image} />
+        <CardContent>
+          <TextInfoContent
+            classes={contentStyles}
+            overline={date}
+            heading={title}
+            body={fixDescription(content)}
+          />
+          <BlogButton href={link} />
+        </CardContent>
+      </Card>
+    </Grow>
+  )
+})
+
+/*
 const BlogButton = React.forwardRef(({ onClick, href }, ref) => {
   const styles = useStyles()
   const { button: buttonStyles } = useBlogTextInfoContentStyles()
@@ -91,5 +174,7 @@ const BlogCard = React.memo(function BlogCard({ date, title, id, body }) {
     </Grow>
   )
 })
+
+*/
 
 export default BlogCard

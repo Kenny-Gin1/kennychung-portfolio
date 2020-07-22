@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { DateDay } from '../../components/Date'
 import utilStyles from '../../components/styles/utils.module.css'
 import styles from '../../components/styles/layout.module.css'
@@ -23,13 +22,15 @@ export default function Blog({ posts }) {
           Here are articles written by me.
         </p>
         <ul className={`${utilStyles.list} ${styles.blogContainer}`}>
-          {posts.map(({ id, pubDate, title, link, description }) => (
+          {posts.map(({ id, pubDate, title, link, content, thumbnail }) => (
             <li className={`${utilStyles.listItem} `} key={id}>
               <BlogCard
-                id={id}
-                date={pubDate}
+                date={<DateDay dateString={pubDate} />}
                 title={title}
-                body={description}
+                content={content}
+                image={thumbnail}
+                link={link}
+                key={id}
               />
             </li>
           ))}
@@ -38,17 +39,6 @@ export default function Blog({ posts }) {
     </Layout>
   )
 }
-
-/*
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData,
-    },
-  }
-}
-*/
 
 export async function getStaticProps() {
   const res = await fetch(
