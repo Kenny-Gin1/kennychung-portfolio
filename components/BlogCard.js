@@ -94,7 +94,7 @@ const fixDescription = (content) => {
     .replace(/<[^>]+>/gm, '')
     // Remove leading spaces and repeated CR/LF
     .replace(/([\r\n]+ +)+/gm, '')
-    .replace(/Continue[^]*/gm, '')
+    .replace(/Continue[^]*/gm, '...')
   return newContent
 }
 
